@@ -1,0 +1,47 @@
+<%- include('../../../partials/head.ejs') %>
+<link rel="stylesheet" type="text/css" href="/css/newStyle.css">
+<%- include('../../../partials/head2.ejs') %>
+<body>
+    <%- include('../../../partials/navbar.ejs') %>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="display-4">Edição</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="/admin/section/update">
+                    <br><label>Artigos</label>
+                    <select class="form-control" name="articleSelect">
+                        <% articles.forEach(article => { %>
+                            <% if (article.id == sections.articleId) {%>
+                                <option value="<%=article.id%>" selected><%= article.title %></option>
+                            <% }else { %>
+                                <option value="<%=article.id%>"><%= article.title %></option>
+                            <% } %> 
+                        <% }); %> 
+                    </select>
+                    <br><label>Título</label>
+                    <input type="text" name="title" class="form-control" placeholder="<%= sections.title %>">
+                    <br><textarea class="form-control" id="section" name="corpo">
+                        <%= sections.body %> 
+                    </textarea>
+                    <br><button class="btn btn-warning" value="<%=sections.id%>" name="id">Atualizar</button>
+                </form>
+            </div>
+        </div>
+        <hr>
+    </div>
+</body>
+<%- include('../../../partials/footer.ejs') %>
+
+<script src="/tinymce/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector: '#section',
+        language: 'pt_BR',
+        plugins: [
+            'advlist autolink hr lists table print insertdatetime preview emoticons image bbcode code autosave',
+        ]
+    })
+</script>

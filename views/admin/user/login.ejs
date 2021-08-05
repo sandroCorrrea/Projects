@@ -1,0 +1,24 @@
+<%- include('../../../partials/head.ejs') %>
+<link rel="stylesheet" type="text/css" href="/css/newStyle.css">
+<%- include('../../../partials/head2.ejs') %>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="display-6">Login</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="/admin/user/authentication">
+                    <label>Email</label>
+                    <input type="text" name="email" placeholder="exemplo@.gmail.com" class="form-control"><br>
+                    <label>Senha</label>
+                    <input type="password" name="password" placeholder="*******" class="form-control"><br>
+                    <div class="d-grid">
+                        <button class="btn btn-success btn-block" type="submit">Logar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<%- include('../../../partials/footer.ejs') %>

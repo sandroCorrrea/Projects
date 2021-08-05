@@ -1,0 +1,46 @@
+<%- include('../../../partials/head.ejs') %>
+<link rel="stylesheet" type="text/css" href="/css/newStyle.css">
+<%- include('../../../partials/head2.ejs') %>
+<body>
+    <%- include('../../../partials/homenavbar.ejs') %>
+
+    <div class="container">
+        <hr>
+        <h2 class="display-4">Conteúdo</h2>
+        <hr>
+        <% result.sections.rows.forEach(section => { %>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="display-6"><%=section.title%></h4>
+                </div>
+                <div class="card-body">
+                    <a class="btn btn-success" href="/<%=section.slug%>">Ler Mais...</a>
+                </div>
+            </div>
+            <br>
+        <% }) %>
+
+        <div class="row">
+            <div class="col col-12">
+                <hr>
+                <% if (result.num > 2){ %> 
+                <a href="/admin/section/page/<%=result.num-1%>" style="float: left;">
+                    Anterior
+                </a>
+                <% }else if(result.num == 2) {%>
+                    <a href="/" style="float: left;">
+                        Anterior
+                    </a>
+                <%}%>  
+                <% if (result.pageNew) {%> 
+                <a href="/admin/section/page/<%=result.num+1%>" style="float: right;">
+                    Proximo
+                </a>
+                <%}%>
+            </div>
+            <hr>
+        </div>
+
+    </div>
+</body>
+<%- include('../../../partials/footer.ejs') %>

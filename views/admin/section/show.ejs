@@ -1,0 +1,43 @@
+<%- include('../../../partials/head.ejs') %>
+<link rel="stylesheet" type="text/css" href="/css/newStyle.css">
+<%- include('../../../partials/head2.ejs') %>
+<body>
+    <%- include('../../../partials/navbar.ejs') %>
+    <div class="container">
+        <hr>
+        <h2 class="display-4">Lista de Seções</h2>
+        <a class="btn btn-success" href="/admin/section/new">Criar Nova Seção</a>
+        <hr>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Título</th>
+                    <th>Slug</th>
+                    <th>Corpo</th>
+                    <th>Artigo</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% sections.forEach(section => { %>
+                <tr>
+                    <th><%=section.id%></th>
+                    <th><%=section.title%></th>
+                    <th><%=section.slug%></th>
+                    <th><%=section.body%></th>
+                    <th><%=section.article.title%></th>
+                    <th>
+                        <form method="POST" action="/admin/section/delete" onsubmit="confirmDelete(event)" style="display: inline;">
+                            <button class="btn btn-danger" name="id" value="<%=section.id%>">Excluir</button>
+                        </form>
+                        <br><a class="btn btn-warning" href="/admin/section/edit/<%=section.id%> ">Editar</a>
+                    </th>
+                </tr>
+                <% }); %> 
+            </tbody>
+        </table>
+    </div>
+</body>
+<%- include('../../../partials/footer.ejs') %>

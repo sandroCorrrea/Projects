@@ -1,0 +1,15 @@
+<nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        Home
+    </a>
+
+    <ul class="navbar-nav me-auto">
+        <% articles.forEach(article => { %>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <%=article.title%> 
+                </a>
+            </li>
+        <% }) %>
+    </ul>
+</nav>

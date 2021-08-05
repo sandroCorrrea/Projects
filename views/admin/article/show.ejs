@@ -1,0 +1,39 @@
+<%- include('../../../partials/head.ejs') %>
+<link rel="stylesheet" type="text/css" href="/css/newStyle.css">
+<%- include('../../../partials/head2.ejs') %>
+<body>
+    <%- include('../../../partials/navbar.ejs') %>
+
+    <div class="container">
+        <hr>
+        <h2 class="display-4">Mostrando Artigos</h2>
+        <a href="/admin/article/new" class="btn btn-success">Cadastrar Artigo</a>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Titulo</th>
+                    <th>Slug</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% articles.forEach(article => { %>
+                <tr>
+                    <th> <%= article.id %> </th>
+                    <th> <%= article.title %> </th>
+                    <th> <%= article.slug %> </th>
+                    <th>
+                        <form style="display: inline;" method="POST" action="/admin/article/delete" onsubmit="confirmDelete(event)">
+                            <button class="btn btn-danger" name="id" value="<%= article.id %>">Excluir</button>
+                        </form>
+                        <a class="btn btn-warning" href="/admin/article/edit/<%= article.id %>" >Editar</a>
+                    </th>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+<%- include('../../../partials/footer.ejs') %>

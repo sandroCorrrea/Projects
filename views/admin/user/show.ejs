@@ -1,0 +1,35 @@
+<%- include('../../../partials/head.ejs') %>
+<link rel="stylesheet" type="text/css" href="/css/newStyle.css">
+<%- include('../../../partials/head2.ejs') %>
+<body>
+    <%- include('../../../partials/navbar.ejs') %>
+    <div class="container">
+        <hr>
+        <h6 class="display-6">Usuários</h6>
+        <a class="btn btn-success" href="/admin/users/new">Novo Usuário</a>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Email</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% users.forEach(user => { %>
+                <tr>
+                    <th><%=user.id%></th>
+                    <th><%=user.email%></th>
+                    <th>
+                        <button class="btn btn-danger">Excluir</button>
+                        <button class="btn btn-warning">Editar</button>
+                    </th>
+                </tr>
+            </tbody>
+            <% }); %>
+        </table>
+        
+    </div>
+</body>
+<%- include('../../../partials/footer.ejs') %>
