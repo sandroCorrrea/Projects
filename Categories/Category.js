@@ -12,6 +12,6 @@ const Category = database.define('categories', {
     }
 });
 
-// Category.sync({ force: false });
+Category.sync({ force: false });
 
 module.exports = Category;

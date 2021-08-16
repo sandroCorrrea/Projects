@@ -27,8 +27,6 @@ const Customer = require('./Clients/Customer');
 const Admin = require('./Admin/AdminModel');
 const Post = require('./Postes/Post');
 
-const db = require('./Config/db');
-
 //ROTAS
 app.use('/', categoriesControllers);
 app.use('/', clientsControllers);
@@ -52,7 +50,6 @@ app.get('/', (req, res) => {
     });
 });
 
-const PORT = process.env.PORT || 8089;
 
 app.listen(PORT, (erro) => {
     if (erro) {

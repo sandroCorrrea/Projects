@@ -16,6 +16,6 @@ const Post = database.define('postes', {
     }
 });
 
-// Post.sync({ force: false });
+Post.sync({ force: false });
 
 module.exports = Post;
