@@ -50,8 +50,9 @@ app.get('/', (req, res) => {
     });
 });
 
+var porta = process.env.PORT || 8080;
 
-app.listen(PORT, (erro) => {
+app.listen(porta, (erro) => {
     if (erro) {
         console.log('ERRO!');
     } else {
