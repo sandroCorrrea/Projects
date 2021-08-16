@@ -1,0 +1,82 @@
+<%- include('../../../partials/head.ejs') %> 
+    <link rel="stylesheet" type="text/css" href="/css/styleAdmin.css">
+<%- include('../../../partials/head2.ejs') %> 
+<body>
+    <%- include('../../../partials/navAdmin.ejs') %> 
+    <div class="container">
+        <hr>
+        <img src="/img/logo.png" class="logo">
+        <h2 class="display-5">Lista de clientes</h2>
+        <a class="btn btn-primary" href="/admin/clients/new">Novo cliente</a>
+        <hr>
+
+        <div class="d-grid">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Mostrar Responsáveis e seus Códigos
+            </button>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Responsáveis</h5>
+                <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome do Responsável</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% admins.forEach(admin => { %>
+                            <tr>
+                                <th><%= admin.id %></th>
+                                <th><%= admin.name %> </th>
+                            </tr>
+                        <% }) %> 
+                    </tbody>
+                </table>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <hr>
+
+        <table class="table table-dark mt-3">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Cod.Responsável</th>
+                    <th>CPF/CNPJ</th>
+                    <th>Categoria</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% clients.forEach(customer => { %>
+                    <tr>
+                        <th><%=customer.id %> </th>
+                        <th><%=customer.name %> </th>
+                        <th><%=customer.adminId%> </th>
+                        <th><%=customer.cpf %> </th>
+                        <th><%=customer.category.title%> </th>
+                        <th>
+                            <form method="POST" action="/admin/clients/delete" style="display: inline;" onsubmit="confirmDelete(event)">
+                                <button class="btn btn-danger" name="id" value="<%=customer.id%>">Excluir</button>
+                            </form>
+                            <a class="btn btn-warning" href="/admin/clients/edit/<%=customer.id%>">Editar</a>
+                        </th>
+                    </tr>
+                <% }); %> 
+            </tbody>
+        </table>
+    </div>
+</body>
+<%- include('../../../partials/footer.ejs') %> 

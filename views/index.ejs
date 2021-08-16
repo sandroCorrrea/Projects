@@ -1,0 +1,27 @@
+<%- include('../partials/head') %>
+    <link rel="stylesheet" type="text/css" href="/css/indexHomePage.css">
+    <%- include('../partials/head2') %>
+
+        <body>
+            <%- include('../partials/nav') %>
+                <div class="container containerIndex">
+                    <hr>
+                    <h1 class="display-4">Olá bem vindo a Agenda Contabilidade !</h1>
+                    <hr>
+                    <% posts.forEach(post => { %>
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="display-6">
+                                    <%= post.title %>
+                                </h5>
+                                <hr>
+                            </div>
+                            <div class="card-body">
+                                <%-post.body%>
+                            </div>
+                        </div>
+                        <br>
+                        <% }); %>
+                </div>
+        </body>
+        <%- include('../partials/footer.ejs') %>

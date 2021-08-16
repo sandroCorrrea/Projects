@@ -1,0 +1,32 @@
+<%- include('../../partials/head.ejs') %>
+    <link rel="stylesheet" type="text/css" href="/css/styleAdmin.css">
+    <%- include('../../partials/head2.ejs') %>
+
+        <body>
+            <%- include('../../partials/nav.ejs') %>
+                <div class="container mt-5 mb-5">
+                    <div class="card" id="cardLoginAdmin">
+                        <div class="card-header">
+                            <hr>
+                            <h1 class="display-6">Login Adminstrador &#10004</h1>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST" action="/user/authenticate">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" placeholder=" " name="email">
+                                    <label>Email</label>
+                                </div>
+                                <br>
+                                <div class="form-floating">
+                                    <input type="password" class="form-control" placeholder=" " name="password">
+                                    <label>Senha</label>
+                                </div>
+                                <br>
+                                <div class="d-grid gap-2 col-6 mx-auto">
+                                    <button class="btn btn-primary" type="submit">Entrar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </body>

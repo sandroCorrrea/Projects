@@ -1,0 +1,41 @@
+<%- include('../../../partials/head.ejs') %> 
+    <link rel="stylesheet" type="text/css" href="/css/styleAdmin.css">
+<%- include('../../../partials/head2.ejs') %> 
+<body>
+    <%- include('../../../partials/navAdmin.ejs') %> 
+    <div class="container">
+        <hr>
+        <img src="/img/logo.png" class="logo">
+        <h2 class="display-5">Lista de Adms</h2>
+        <a class="btn btn-primary" href="/admin/new">Cadastrar Administrador</a>
+        <hr>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Cpf</th>
+                    <th>Email</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% admins.forEach(admin => { %>
+                <tr>
+                    <th><%=admin.id%></th>
+                    <th><%=admin.name%></th>
+                    <th><%=admin.cpf%></th>
+                    <th><%=admin.email%></th>
+                    <th>
+                        <form method="POST" action="/admin/delete" onsubmit="confirmDelete(event)" style="display: inline;">
+                            <button class="btn btn-danger" name="id" value="<%=admin.id%>">Excluir</button>
+                        </form>
+                        <a class="btn btn-warning" href="/admin/edit/<%=admin.id%>">Editar</a>
+                    </th>
+                </tr>
+                <% }); %> 
+            </tbody>
+        </table>
+    </div>
+</body>
+<%- include('../../../partials/footer.ejs') %> 

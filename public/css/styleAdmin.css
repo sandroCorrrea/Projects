@@ -1,0 +1,29 @@
+body {
+    background-color: deepskyblue;
+}
+
+.card {
+    background-color: black;
+    color: white;
+}
+
+.card-header {
+    text-align: center;
+}
+
+.logo {
+    margin-top: 2vh;
+    float: right;
+}
+
+.container {
+    margin-top: 15vh;
+}
+
+.form-floating {
+    color: black;
+}
+
+#cardLoginAdmin {
+    margin-top: 25vh;
+}

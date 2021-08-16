@@ -1,0 +1,43 @@
+<%- include('../../../partials/head.ejs') %>
+    <link rel="stylesheet" type="text/css" href="/css/styleAdmin.css">
+    <%- include('../../../partials/head2.ejs') %>
+
+        <body>
+            <%- include('../../../partials/navAdmin.ejs') %>
+                <div class="container">
+                    <div class="card">
+                        <div class="card-header">
+                            <hr>
+                            <h1 class="display-5">Publicar Post 🔥</h1>
+                            <img src="/img/logo.png" class="mt-2">
+                            <hr>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST" action="/admin/post/save">
+                                <div class="form-floating mt-3" style="color: black;">
+                                    <input type="text" name="title" class="form-control" placeholder="Ex: Pessoa Física, Produtor Rural" required>
+                                    <label for="floatingInput">Digite um título para o post</label>
+                                </div>
+                                <br><textarea class="form-control" id="section" name="body" required>
+                    </textarea>
+                                <div class="d-grid">
+                                    <br><button class="btn btn-primary">Publicar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+        </body>
+        <%- include('../../../partials/footer.ejs') %>
+
+            <script src="/tinymce/tinymce.min.js"></script>
+            <script>
+                tinymce.init({
+                    selector: '#section',
+                    language: 'pt_BR',
+                    plugins: [
+                        'advlist autolink hr lists table print insertdatetime preview emoticons image bbcode code autosave imagetools help contextmenu link media paste pagebreak tabfocus wordcount visualblocks',
+                    ]
+                })
+            </script>

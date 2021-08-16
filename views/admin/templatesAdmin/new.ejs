@@ -1,0 +1,58 @@
+<%- include('../../../partials/head.ejs') %>
+    <link rel="stylesheet" type="text/css" href="/css/styleAdmin.css">
+    <%- include('../../../partials/head2.ejs') %>
+
+        <body>
+            <%- include('../../../partials/navAdmin.ejs') %>
+                <div class="container mb-5">
+                    <div class="card">
+                        <div class="card-header">
+                            <hr>
+                            <h1 class="display-5">Cadastrar Adminstrador</h1>
+                            <img src="/img/logo.png" class="mt-2">
+                            <hr>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST" action="/admin/save/data">
+                                <div class="form-floating">
+                                    <input type="text" name="name" class="form-control" placeholder=" " required>
+                                    <label>Nome</label>
+                                </div>
+                                <div class="form-floating mt-3">
+                                    <input type="number" name="cpf" class="form-control" placeholder=" " required>
+                                    <label>CPF</label>
+                                </div>
+                                <div class="form-floating mt-3">
+                                    <input type="date" name="dathBirth" class="form-control" placeholder=" " required>
+                                    <label>Data Nascimento</label>
+                                </div>
+                                <div class="form-floating mt-3">
+                                    <input type="number" name="phone" class="form-control" placeholder=" " required>
+                                    <label>Telefone</label>
+                                </div>
+                                <div class="form-floating mt-3">
+                                    <input type="text" name="address" class="form-control" placeholder=" " required>
+                                    <label>Endereço</label>
+                                </div>
+                                <hr>
+                                <div class="form-floating mt-3">
+                                    <input type="email" name="email" class="form-control" placeholder=" " required>
+                                    <label>Email</label>
+                                </div>
+                                <div class="form-floating mt-3">
+                                    <input type="password" name="password" class="form-control" placeholder=" " required>
+                                    <label>Senha</label>
+                                </div>
+                                <div class="form-floating mt-3">
+                                    <input type="password" name="confirmPassword" class="form-control" placeholder=" " required>
+                                    <label>Confirme sua senha</label>
+                                </div>
+                                <div class="d-grid">
+                                    <br><button class="btn btn-primary">Cadastrar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </body>
+        <%- include('../../../partials/footer.ejs') %>

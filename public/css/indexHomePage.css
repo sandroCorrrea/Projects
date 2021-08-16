@@ -1,0 +1,16 @@
+body {
+    background-color: deepskyblue;
+}
+
+.card {
+    background-color: black;
+    color: white;
+}
+
+.card-header {
+    text-align: center;
+}
+
+.containerIndex {
+    margin-top: 25vh;
+}

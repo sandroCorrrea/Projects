@@ -1,0 +1,39 @@
+<%-include('../../../partials/head.ejs')%>
+    <link rel="stylesheet" type="text/css" href="/css/styleAdmin.css">
+<%- include('../../../partials/head2.ejs') %> 
+<body>
+    <%- include('../../../partials/navAdmin.ejs') %> 
+    <div class="container">
+        <hr>
+        <h2 class="display-5" style="text-align: center;">Editar dados do Post 🔥</h2>
+        <hr>
+        <div class="card mb-5">
+            <div class="card-body">
+                <form method="POST" action="/admin/post/update">
+                    <div class="form-floating mt-3">
+                        <input type="text" class="form-control" name="title" placeholder=" " value="<%=posts.title%>">
+                        <label>Título do Post</label>
+                    </div>
+                    <br>
+                    <textarea class="form-control" id="section" name="body"><%=posts.body%> </textarea>
+                    <input type="hidden" name="id" value="<%=posts.id%>">
+                    <div class="d-grid">
+                        <br><button class="btn btn-warning">Atualizar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<%- include('../../../partials/footer.ejs') %> 
+
+<script src="/tinymce/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector: '#section',
+        language: 'pt_BR',
+        plugins: [
+            'advlist autolink hr lists table print insertdatetime preview emoticons image bbcode code autosave',
+        ]
+    })
+</script>

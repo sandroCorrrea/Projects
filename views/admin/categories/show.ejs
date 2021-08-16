@@ -1,0 +1,39 @@
+<%- include('../../../partials/head.ejs') %> 
+    <link rel="stylesheet" type="text/css" href="/css/styleAdmin.css">
+<%- include('../../../partials/head2.ejs') %> 
+<body>
+    <%- include('../../../partials/navAdmin.ejs') %> 
+    <div class="container">
+        <hr>
+        <img src="/img/logo.png" class="logo">
+        <h2 class="display-5">Lista de categorias</h2>
+        <a class="btn btn-primary" href="/admin/categories/new">Nova categoria</a>
+        <hr>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Data de Criação</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% categories.forEach(category => { %>
+                <tr>
+                    <th><%=category.id%></th>
+                    <th><%=category.title%></th>
+                    <th><%=category.createdAt%></th>
+                    <th>
+                        <form style="display: inline;" method="POST" action="/admin/categories/delete" onsubmit="confirmDelete(event)">
+                            <button class="btn btn-danger" name="id" value="<%=category.id%>">Excluir</button>
+                        </form>
+                        <a class="btn btn-warning" href="/admin/categories/edit/<%=category.id%>">Editar</a>
+                    </th>
+                </tr>
+                <% }); %> 
+            </tbody>
+        </table>
+    </div>
+</body>
+<%- include('../../../partials/footer.ejs') %> 

@@ -1,0 +1,70 @@
+<%- include('../../../partials/head.ejs') %>
+    <link rel="stylesheet" type="text/css" href="/css/styleAdmin.css">
+    <%- include('../../../partials/head2.ejs') %>
+
+        <body>
+            <%- include('../../../partials/navAdmin.ejs') %>
+                <div class="container mb-5">
+                    <div class="card">
+                        <div class="card-header">
+                            <hr>
+                            <h1 class="display-5">Cadastrar Cliente</h1>
+                            <img src="/img/logo.png" class="mt-2">
+                            <hr>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST" action="/admin/clients/save">
+                                <label>Selecione a categoria</label>
+                                <select class="form-select" name="categoryId">
+                        <% categories.forEach(category => { %>
+                            <option value="<%= category.id %>"><%= category.title %></option>
+                        <% }); %>
+                    </select>
+                                <div class="form-floating mt-3">
+                                    <input type="text" class="form-control" name="name" placeholder=" ">
+                                    <label>Nome do Cliente</label>
+                                </div>
+                                <div class="form-floating mt-3">
+                                    <input type="text" name="cpf" class="form-control" placeholder=" ">
+                                    <label>CPF/CNPJ</label>
+                                </div>
+                                <div class="form-floating mt-3">
+                                    <input type="date" name="dathBirth" class="form-control" placeholder=" ">
+                                    <label>Data Nascimento</label>
+                                </div>
+                                <div class="form-floating mt-3">
+                                    <input type="text" name="phone" class="form-control" placeholder=" ">
+                                    <label>Telefone</label>
+                                </div>
+                                <div class="form-floating mt-3">
+                                    <input type="text" name="address" class="form-control" placeholder=" ">
+                                    <label>Endereço</label>
+                                </div>
+                                <label style="margin-top: 2vh;">Selecione o responsável</label>
+                                <select class="form-select" name="adminId">
+                        <% admins.forEach(admin => { %>
+                            <option value="<%=admin.id%>"><%=admin.name%> </option>
+                        <% }) %> 
+                    </select>
+                                <hr>
+                                <div class="form-floating mt-3">
+                                    <input type="email" name="email" class="form-control" placeholder=" ">
+                                    <label>Email</label>
+                                </div>
+                                <div class="form-floating mt-3">
+                                    <input type="password" name="password" class="form-control" placeholder=" ">
+                                    <label>Senha</label>
+                                </div>
+                                <div class="form-floating mt-3">
+                                    <input type="password" name="confirmPassword" class="form-control" placeholder=" ">
+                                    <label>Confirme sua senha</label>
+                                </div>
+                                <div class="d-grid">
+                                    <br><button class="btn btn-primary">Cadastrar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </body>
+        <%- include('../../../partials/footer.ejs') %>

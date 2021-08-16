@@ -1,0 +1,23 @@
+<%- include('../../../partials/head.ejs') %> 
+    <link rel="stylesheet" type="text/css" href="/css/styleAdmin.css">
+<%- include('../../../partials/head2.ejs') %> 
+<body>
+    <%- include('../../../partials/navAdmin.ejs') %> 
+    <div class="container">
+        <hr>
+        <img src="/img/editar.png" class="logo_edit" style="float: right;">
+        <h2 class="display-5" style="text-align: center;">Editar categoria</h2>
+        <hr>
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" action="/admin/categories/update">
+                    <label>Altere o título da categoria</label>
+                    <input type="hidden" value="<%=category.id%>" name="id">
+                    <input type="text" class="form-control" placeholder="<%=category.title%>" name="title">
+                    <br><button class="btn btn-warning">Atualizar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<%- include('../../../partials/footer.ejs') %> 

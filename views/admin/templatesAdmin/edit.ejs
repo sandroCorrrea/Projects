@@ -1,0 +1,37 @@
+<%- include('../../../partials/head.ejs') %>
+    <link rel="stylesheet" type="text/css" href="/css/styleAdmin.css">
+    <%- include('../../../partials/head2.ejs') %>
+
+        <body>
+            <%- include('../../../partials/navAdmin.ejs') %>
+                <div class="container">
+                    <hr>
+                    <h2 class="display-5" style="text-align: center;">Editar dados do Administrador 🧑‍💼</h2>
+                    <hr>
+                    <div class="card mb-5">
+                        <div class="card-body">
+                            <form method="POST" action="/admin/update">
+                                <label>Nome:</label>
+                                <input type="text" name="name" class="form-control" value="<%= admins.name %> ">
+                                <br><label>Cpf:</label>
+                                <input type="text" name="cpf" class="form-control" value="<%= admins.cpf %>">
+                                <br><label>Data de Nascimento:</label>
+                                <input type="date" name="dathBirth" class="form-control" value="<%= admins.dathBirth %>">
+                                <br><label>Telefone:</label>
+                                <input type="tel" name="phone" class="form-control" value="<%= admins.phone %>">
+                                <br><label>Logradouro:</label>
+                                <input type="text" name="address" class="form-control" value="<%= admins.address %>">
+                                <input type="hidden" value="<%= admins.id %>" name="id">
+                                <br><label>Email:</label>
+                                <input type="email" name="email" class="form-control" value="<%= admins.email %>">
+                                <br><label>Senha:</label>
+                                <input type="password" name="password" class="form-control" value="<%= admins.password %>">
+                                <div class="d-grid">
+                                    <br><button class="btn btn-warning">Atualizar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </body>
+        <%- include('../../../partials/footer.ejs') %>
