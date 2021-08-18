@@ -1,39 +1,39 @@
 <%-include('../../../partials/head.ejs') %>
-    <link rel="stylesheet" type="text/css" href="/css/styleAdmin.css">
+    <link rel="stylesheet" type="text/css" href="/css/indexHomePage.css">
     <%-include('../../../partials/head2.ejs') %>
 
         <body>
             <%-include('../../../partials/nav.ejs') %>
-                <div class="container mt-5 mb-5">
-                    <div class="card" id="cardLoginAdmin">
+                <div class="container mt-5 mb-5" style="width: 800px;">
+                    <div class="card">
                         <div class="card-header">
                             <hr>
-                            <h1 class="display-6">Faça seu Cadastro, Preencha o formulário ✏️</h1>
+                            <h6 class="display-6">Faça seu Cadastro agora!</h6>
                             <hr>
                         </div>
                         <div class="card-body">
                             <form method="POST" action="/client/register/save">
-                                <div class="form-floating">
+                                <div class="form-floating" style="color: black;">
                                     <input type="text" name="name" placeholder=" " class="form-control" required>
                                     <label>Digite seu nome</label>
                                 </div>
                                 <br>
-                                <div class="form-floating">
+                                <div class="form-floating" style="color: black;">
                                     <input type="number" name="cpf" placeholder=" " class="form-control" required>
                                     <label>Digite seu CPF</label>
                                 </div>
                                 <br>
-                                <div class="form-floating">
+                                <div class="form-floating" style="color: black;">
                                     <input type="date" name="dathBirth" placeholder=" " class="form-control" required>
                                     <label>Data de Nascimento</label>
                                 </div>
                                 <br>
-                                <div class="form-floating">
+                                <div class="form-floating" style="color: black;">
                                     <input type="number" name="phone" placeholder=" " class="form-control" required>
                                     <label>Telefone</label>
                                 </div>
                                 <br>
-                                <div class="form-floating">
+                                <div class="form-floating" style="color: black;">
                                     <input type="text" name="address" placeholder=" " class="form-control" required>
                                     <label>Endereço</label>
                                 </div>
@@ -46,23 +46,24 @@
                                 </select>
                                 <hr>
                                 <br>
-                                <div class="form-floating">
+                                <div class="form-floating" style="color: black;">
                                     <input type="email" name="email" placeholder=" " class="form-control" required>
                                     <label>Email</label>
                                 </div>
                                 <br>
-                                <div class="form-floating">
+                                <div class="form-floating" style="color: black;">
                                     <input type="password" name="password" placeholder=" " class="form-control" required>
                                     <label>Senha</label>
                                 </div>
                                 <br>
-                                <div class="form-floating">
+                                <div class="form-floating" style="color: black;">
                                     <input type="password" name="confirmPassword" placeholder=" " class="form-control" required>
                                     <label>Confirme sua senha</label>
                                 </div>
                                 <br><button class="btn btn-success">Cadastrar</button>
-                            </form>
+                            </form>                           
                         </div>
                     </div>
+                </div>
         </body>
         <%-include('../../../partials/footer.ejs') %>

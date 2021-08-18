@@ -41,6 +41,6 @@ const Customer = database.define('clients', {
 Admin.hasMany(Customer);
 Customer.belongsTo(Category);
 
-Customer.sync({ force: false });
+// Customer.sync({ force: true });
 
 module.exports = Customer;

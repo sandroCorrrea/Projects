@@ -36,6 +36,6 @@ const Admin = database.define('admins', {
     }
 });
 
-Admin.sync({ force: false });
+// Admin.sync({ force: true });
 
 module.exports = Admin;

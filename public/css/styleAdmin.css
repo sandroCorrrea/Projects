@@ -2,6 +2,10 @@ body {
     background-color: deepskyblue;
 }
 
+#cardLoginAdmin {
+    margin-top: 25vh;
+}
+
 .card {
     background-color: black;
     color: white;
@@ -24,6 +28,8 @@ body {
     color: black;
 }
 
-#cardLoginAdmin {
-    margin-top: 25vh;
+.imgAdmin
+{
+    width: 100px;
+    border-radius: 20px;
 }
