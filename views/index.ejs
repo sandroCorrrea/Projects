@@ -4,10 +4,10 @@
 
         <body>
             <%- include('../partials/nav') %>
-                <div class="container containerIndex">
+                <div class="container">
                     <h5 class="display-6 line cursorTitle" style="margin-left: 20%; text-align: center;">Olá bem vindo á Agenda Contabilidade !</h5>
                     <% posts.forEach(post => { %>
-                        <div class="card">
+                        <div class="card mt-5" style="width: 600px;">
                             <div class="card-header">
                                 <h5 class="display-6">
                                     <%= post.title %>
