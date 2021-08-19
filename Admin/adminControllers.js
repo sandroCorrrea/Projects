@@ -20,6 +20,48 @@ router.post('/admin/save/data', adminAuth, (req, res) => {
     var password = req.body.password;
     var confirmPassword = req.body.confirmPassword;
 
+    let transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {
+            user: 'jsandro800@gmail.com',
+            pass: 'scrj123456',
+        }
+    });
+
+    let menssage = transporter.sendMail({
+        from: '"AGENDA CONTABILIDADE" <jsandro800@gmail.com>', //PESSOA QUE ESTA ENVIANDO
+        to: email, //PESSOA PARA QUEM ESTA ENVIANDO ESTA ENVIANDO
+        subject: "Olá " + name + " sua conta como administrador foi confirmada pela Agenda Contabilidade ! :)" ,
+        attachments: [{
+            filename: 'logo.png',
+            path: 'public/img/logo.png',
+            cid: 'unique@nodemailer.com' //same cid value as in the html img src
+        }],
+        html: ` <!doctype html>
+        <html ⚡4email>
+          <head>
+            <meta charset="utf-8">
+            <style amp4email-boilerplate>body{visibility:hidden}</style>
+            <script async src="https://cdn.ampproject.org/v0.js"></script>
+            <script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>
+          </head>
+          <body style="color: #0596f9">
+              <h1>AGENDA CONTABILIDADE.</h1>
+              <br>
+              <h4><b>Assunto</b>: Temos um grande orgulho em nomear você como um novo administrador da nossa plataforma!
+              faça um bom uso.</h4>
+              <hr>
+              <img src="cid:unique@nodemailer.com" alt="Agenda Contabilidade" style="margin-right: 15vh">
+              <hr>
+              <footer background-color="#afb5c5"">
+                <h3><b>Contato</b>              Telefone: (33)3321-4763         Email: contabilidadeagenda@gmail.com</h3>
+                <hr>
+              </footer>
+          </body>
+        </html>`,
+    });
 
     if (password != confirmPassword) {
         res.redirect('/admin/erro/password');
@@ -175,34 +217,6 @@ router.post('/user/authenticate', (req, res) => {
         }
     })
 });
-
-router.get('/nodemailer', (req, res) => {
-    let trasnporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 465,
-        secure: true,
-        auth: {
-            user: 'jsandro800@gmail.com',
-            pass: 'scrj123456',
-        }
-    });
-
-    trasnporter.sendMail({
-        from: 'Agenda Contabilidade <jsandro800@gmail.com>',
-        to: 'jsandro800@gmail.com',
-        subject: 'Olá Somos a Agenda Contabilidade e estamos te mandando um email Teste',
-        text: 'Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.',
-        html: '<h1 style="text-aling: center";>Teste com HTML </h1><b>Testo em negrito</b>',
-        amp: ""
-    }).then(message => {
-        console.log(message);
-    }).catch(erro => {
-        console.log(erro);
-    });
-
-    res.send('Mandamos o email');
-});
-
 
 router.get('/logout', (req, res) => {
     req.session.user == undefined;
