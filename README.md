@@ -1,3 +1,6 @@
 <h1>Projetos Solos</h1>
-Blog de Postagens com Tiny MCE,
-Home Page Agenda
+<ul>
+  <li>Blog de Postagens com Tiny MCE</li>
+  <li>Home Page Agenda</li>
+</ul>
+
