@@ -53,7 +53,9 @@ router.post('/admin/save/data', adminAuth, (req, res) => {
               <h4><b>Assunto</b>: Temos um grande orgulho em nomear você como um novo administrador da nossa plataforma!
               faça um bom uso.</h4>
               <hr>
-              <img src="cid:unique@nodemailer.com" alt="Agenda Contabilidade" style="margin-right: 15vh">
+              <div style="text-align: center">
+                <img src="cid:unique@nodemailer.com" alt="Agenda Contabilidade" style="margin-right: 100%">
+              </div>
               <hr>
               <footer background-color="#afb5c5"">
                 <h3><b>Contato</b>              Telefone: (33)3321-4763         Email: contabilidadeagenda@gmail.com</h3>
